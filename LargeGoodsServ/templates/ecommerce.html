@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fake E-Commerce</title>
+    <style>
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            height: 200px;
+            background: #f0f0f0;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fake E-Commerce Platform</h1>
+    <form action="/search">
+        <input type="text" name="q" placeholder="Search products...">
+        <button type="submit">Search</button>
+    </form>
+    
+    <div class="product-grid">
+        {% for product in products %}
+        <div class="product-card">
+            <div class="product-image"></div>
+            <h3>{{ product.name }}</h3>
+            <p>${{ product.price }}</p>
+            <a href="/product/{{ product.id }}">View Details</a>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
